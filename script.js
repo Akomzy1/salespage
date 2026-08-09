@@ -12,14 +12,15 @@ const CONFIG = {
   // pricing in most markets. Set to '' to hide it.
   listPrice: '$50',
 
-  // TODO: your Gumroad / Stripe Payment Link / Lemon Squeezy checkout URL.
-  // Left empty, the buy button just stays on the pricing card.
-  checkoutUrl: '',
 };
+
+// The checkout URL lives directly on the buy button in index.html, not here.
+// It appears exactly once, and hard-coding it keeps the most important link on
+// the page working even if this script fails to load.
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ── Price and checkout ────────────────────────────────────────────────── */
+/* ── Price ─────────────────────────────────────────────────────────────── */
 document.querySelectorAll('[data-price]').forEach(el => {
   el.textContent = CONFIG.price;
 });
@@ -29,13 +30,6 @@ document.querySelectorAll('[data-list-price]').forEach(el => {
   if (!CONFIG.listPrice) { el.previousElementSibling?.remove(); el.remove(); return; }
   el.textContent = CONFIG.listPrice;
 });
-
-if (CONFIG.checkoutUrl) {
-  document.querySelectorAll('[data-checkout]').forEach(a => {
-    a.href = CONFIG.checkoutUrl;
-    a.rel = 'noopener';
-  });
-}
 
 /* ── Reveal on scroll ──────────────────────────────────────────────────────
    One observer for the whole page. Elements above the fold reveal on load so

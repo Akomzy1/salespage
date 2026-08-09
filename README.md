@@ -18,13 +18,22 @@ python -m http.server 8000
 | `assets/` | Cover derivatives and the social share card. |
 | `Attention Reset Sales Page.html` | The original bundled prototype this was built from. Source of truth for the design; not served. |
 
+## Checkout
+
+The buy button on the offer card links to the Stan Store listing:
+
+```
+https://stan.store/battleplan/p/the-attention-reset-30day-focus-protocol
+```
+
+It's hard-coded in `index.html` rather than set from `script.js`, so the most important link on the page survives a JS failure. The hero, sticky-bar, and closing CTAs all scroll down to the offer card instead of jumping straight to checkout — readers see the price, the inclusions, and the guarantee before they leave the page. To send them direct instead, swap those three `href="#pricing"` values for the Stan URL.
+
 ## Before going live
 
-All three are marked `TODO` in the source.
+Both are marked `TODO` in the source.
 
-1. **`CONFIG.checkoutUrl`** in `script.js` — your Gumroad / Stripe / Lemon Squeezy link. While empty, the buy button just rests on the pricing card.
-2. **Real domain** in `index.html` — the canonical link, `og:url`, `og:image`, and the JSON-LD `url`/`image` fields all point at `example.com`.
-3. **Contact email and Privacy / Terms links** in the footer.
+1. **Real domain** in `index.html` — the canonical link, `og:url`, `og:image`, and the JSON-LD `url`/`image` fields all point at `example.com`.
+2. **Contact email and Privacy / Terms links** in the footer.
 
 ## Pricing
 
