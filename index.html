@@ -1,0 +1,356 @@
+<!--
+  THE ATTENTION RESET — sales page
+  ---------------------------------------------------------------------------
+  Before this goes live, wire up the four placeholders. All of them are marked
+  with "TODO" so you can grep for them:
+
+    1. script.js  -> CONFIG.checkoutUrl   your Gumroad / Stripe / Lemon Squeezy link
+    2. script.js  -> CONFIG.formEndpoint  your email list endpoint (ConvertKit, Buttondown…)
+    3. this file  -> og:url / canonical   your real domain
+    4. this file  -> testimonials + contact email
+
+  The three testimonials below are placeholder copy carried over from the
+  prototype. Replace them with real, attributed quotes before publishing.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>The Attention Reset — The 30-Day Protocol to Reclaim Your Focus</title>
+<meta name="description" content="Your attention didn't get weak. It was taken. A 30-day protocol to take it back — one 15-minute task a day. Instant PDF download.">
+<meta name="theme-color" content="#0d1520">
+
+<!-- TODO: replace with your real domain -->
+<link rel="canonical" href="https://example.com/">
+<meta property="og:type" content="book">
+<meta property="og:title" content="The Attention Reset — The 30-Day Protocol to Reclaim Your Focus">
+<meta property="og:description" content="Your attention didn't get weak. It was taken. A 30-day protocol to take it back — one 15-minute task a day.">
+<meta property="og:image" content="https://example.com/assets/og-cover.jpg">
+<meta property="og:url" content="https://example.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Attention Reset">
+<meta name="twitter:description" content="The 30-day protocol to reclaim your focus. One 15-minute task a day.">
+<meta name="twitter:image" content="https://example.com/assets/og-cover.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1520'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23e1a85b' stroke-width='2.5'/%3E%3Cpath d='M16 10v6.6l4 2.6' fill='none' stroke='%23e1a85b' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/book-cover@1x.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/book-cover.webp" imagesrcset="assets/book-cover@1x.webp 380w, assets/book-cover.webp 760w" imagesizes="(max-width: 640px) 55vw, 290px">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<a class="skip" href="#pricing">Skip to pricing</a>
+
+<!-- Appears once the hero scrolls away. Top on desktop, thumb-reach on mobile. -->
+<div class="buybar" id="buybar" hidden>
+  <div class="buybar__in">
+    <span class="buybar__name">The Attention Reset</span>
+    <span class="buybar__price" data-price>$19.99</span>
+    <a class="btn btn--sm" href="#pricing">Start Day 1</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
+<section class="section s-hero">
+  <div class="glow glow--amber" aria-hidden="true"></div>
+  <div class="glow glow--teal" aria-hidden="true"></div>
+
+  <div class="wrap hero">
+    <div class="hero__copy">
+      <p class="eyebrow" data-reveal>The Attention Reset</p>
+      <h1 class="h1" data-reveal style="--d:80">Your attention didn't get weak. It was taken.</h1>
+      <p class="lede" data-reveal style="--d:160">The 30-day protocol to take it back — one 15-minute task a day.</p>
+      <a class="btn" href="#pricing" data-reveal style="--d:240">Start Day 1 — <span data-price>$19.99</span></a>
+      <p class="microcopy" data-reveal style="--d:300"><span>Instant PDF download</span> <span>· 30-day protocol</span> <span>· Science-backed</span></p>
+    </div>
+
+    <div class="hero__art" data-reveal style="--d:180">
+      <div class="book" id="book">
+        <div class="book__halo" aria-hidden="true"></div>
+        <div class="book__spine" aria-hidden="true"></div>
+        <img class="book__face"
+             src="assets/book-cover.webp"
+             srcset="assets/book-cover@1x.webp 380w, assets/book-cover.webp 760w"
+             sizes="(max-width: 640px) 55vw, 290px"
+             width="760" height="1075" fetchpriority="high" decoding="async"
+             alt="Cover of The Attention Reset: a hooded figure standing still on a blurred neon city street.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAIN ══════════════════════════════════════════════════════════════ -->
+<section class="section band s-pain">
+  <div class="wrap wrap--narrow">
+    <div class="pain__lines">
+      <p class="pain__line" data-reveal>You check your phone 50 to 100 times a day. Most of those times, you don't remember deciding to.</p>
+      <p class="pain__line" data-reveal style="--d:80">You open an app for one thing and surface forty minutes later, unsure where the time went.</p>
+      <p class="pain__line" data-reveal style="--d:160">You used to finish books. Now a single page feels like effort.</p>
+      <p class="pain__line" data-reveal style="--d:240">And silence — waiting in line, the first minute in bed — feels unbearable. So you fill it.</p>
+    </div>
+
+    <!-- Signature moment: the Week 1 audit, drawn by hand. One mark per unlock. -->
+    <figure class="tally" id="tally" data-reveal>
+      <div class="tally__marks">
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.16" y1="4.2" x2="5.22" y2="29.28" pathLength="1" style="--i:0"/><line x1="11.27" y1="4.47" x2="12.05" y2="29.49" pathLength="1" style="--i:1"/><line x1="18.87" y1="4.2" x2="18.87" y2="29.2" pathLength="1" style="--i:2"/><line x1="25.63" y1="4.64" x2="26.24" y2="30.27" pathLength="1" style="--i:3"/><line x1="0.76" y1="27.79" x2="29.79" y2="5.27" pathLength="1" style="--i:4"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.92" y1="4.8" x2="3.04" y2="30.71" pathLength="1" style="--i:5"/><line x1="10.51" y1="3.6" x2="12.06" y2="30.84" pathLength="1" style="--i:6"/><line x1="17.87" y1="3.88" x2="17.13" y2="30.83" pathLength="1" style="--i:7"/><line x1="24.92" y1="4.58" x2="23.74" y2="30.28" pathLength="1" style="--i:8"/><line x1="0.27" y1="27.92" x2="28.92" y2="6.16" pathLength="1" style="--i:9"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.77" y1="4.1" x2="4.6" y2="29.21" pathLength="1" style="--i:10"/><line x1="10.47" y1="4.03" x2="11.62" y2="30.97" pathLength="1" style="--i:11"/><line x1="18.01" y1="3.31" x2="18.1" y2="30.06" pathLength="1" style="--i:12"/><line x1="25.39" y1="3.13" x2="24.05" y2="29.82" pathLength="1" style="--i:13"/><line x1="-0.04" y1="28.99" x2="29.54" y2="6.94" pathLength="1" style="--i:14"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.92" y1="4.4" x2="4.56" y2="29.14" pathLength="1" style="--i:15"/><line x1="11.1" y1="3.08" x2="10.04" y2="29.55" pathLength="1" style="--i:16"/><line x1="18.07" y1="4.11" x2="18.84" y2="30.57" pathLength="1" style="--i:17"/><line x1="25.35" y1="3.42" x2="24.22" y2="29.9" pathLength="1" style="--i:18"/><line x1="0.21" y1="28.44" x2="29.14" y2="6.35" pathLength="1" style="--i:19"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="4.6" y1="4.34" x2="3.32" y2="30.78" pathLength="1" style="--i:20"/><line x1="11.84" y1="4.12" x2="10.64" y2="29.96" pathLength="1" style="--i:21"/><line x1="18.29" y1="4.17" x2="18.51" y2="30.19" pathLength="1" style="--i:22"/><line x1="25.48" y1="3.68" x2="25.06" y2="30.67" pathLength="1" style="--i:23"/><line x1="0.34" y1="28.55" x2="28.53" y2="5.97" pathLength="1" style="--i:24"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.22" y1="4.59" x2="4.69" y2="30.59" pathLength="1" style="--i:25"/><line x1="11.64" y1="4.94" x2="10.27" y2="29.2" pathLength="1" style="--i:26"/><line x1="18.6" y1="3.18" x2="18.57" y2="29.81" pathLength="1" style="--i:27"/><line x1="24.33" y1="4.81" x2="25.74" y2="30.38" pathLength="1" style="--i:28"/><line x1="0.08" y1="28.21" x2="28.26" y2="6.96" pathLength="1" style="--i:29"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="4.88" y1="4.43" x2="3.99" y2="30.06" pathLength="1" style="--i:30"/><line x1="10.3" y1="3.53" x2="11.69" y2="28.99" pathLength="1" style="--i:31"/><line x1="18.73" y1="4.6" x2="17.93" y2="31.09" pathLength="1" style="--i:32"/><line x1="24.34" y1="3.14" x2="26.3" y2="30.11" pathLength="1" style="--i:33"/><line x1="-0.23" y1="28.24" x2="28.22" y2="6.43" pathLength="1" style="--i:34"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="4.17" y1="4.34" x2="2.82" y2="30.49" pathLength="1" style="--i:35"/><line x1="10.4" y1="4.28" x2="9.65" y2="28.9" pathLength="1" style="--i:36"/><line x1="18.74" y1="4.77" x2="17.3" y2="30.73" pathLength="1" style="--i:37"/><line x1="24.55" y1="4.44" x2="25.54" y2="29.03" pathLength="1" style="--i:38"/><line x1="-0.28" y1="28.02" x2="28.68" y2="6.72" pathLength="1" style="--i:39"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="4.36" y1="4.52" x2="4.28" y2="29.07" pathLength="1" style="--i:40"/><line x1="11.42" y1="4.62" x2="12.33" y2="28.92" pathLength="1" style="--i:41"/><line x1="17.62" y1="2.95" x2="16.98" y2="29.32" pathLength="1" style="--i:42"/><line x1="25.55" y1="3.89" x2="25.19" y2="29.15" pathLength="1" style="--i:43"/><line x1="-0.29" y1="27.9" x2="28.71" y2="5.66" pathLength="1" style="--i:44"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="4.14" y1="3.16" x2="5.27" y2="30.95" pathLength="1" style="--i:45"/><line x1="11.6" y1="4.36" x2="9.69" y2="30.9" pathLength="1" style="--i:46"/><line x1="17.72" y1="3.51" x2="19.29" y2="29.49" pathLength="1" style="--i:47"/><line x1="24.56" y1="2.99" x2="25.15" y2="29.89" pathLength="1" style="--i:48"/><line x1="0.71" y1="27.44" x2="28.41" y2="5.05" pathLength="1" style="--i:49"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.71" y1="4.14" x2="4.1" y2="28.97" pathLength="1" style="--i:50"/><line x1="10.9" y1="4.82" x2="12.02" y2="29.1" pathLength="1" style="--i:51"/><line x1="18.06" y1="4.15" x2="17.49" y2="30.25" pathLength="1" style="--i:52"/><line x1="24.44" y1="3.9" x2="26.2" y2="29.2" pathLength="1" style="--i:53"/><line x1="0.37" y1="27.76" x2="29.2" y2="5.56" pathLength="1" style="--i:54"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.44" y1="3.04" x2="3.56" y2="29.43" pathLength="1" style="--i:55"/><line x1="10.71" y1="4.6" x2="11.42" y2="29.6" pathLength="1" style="--i:56"/><line x1="18.79" y1="3.08" x2="18.4" y2="29.87" pathLength="1" style="--i:57"/><line x1="25.51" y1="3.75" x2="24.99" y2="29.27" pathLength="1" style="--i:58"/><line x1="0.14" y1="28.01" x2="29.02" y2="5.23" pathLength="1" style="--i:59"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.78" y1="4.96" x2="5.38" y2="29.53" pathLength="1" style="--i:60"/><line x1="10.92" y1="3.16" x2="11.84" y2="29.51" pathLength="1" style="--i:61"/><line x1="18.02" y1="3.66" x2="19.18" y2="30.76" pathLength="1" style="--i:62"/><line x1="25.86" y1="4.13" x2="26.15" y2="30.51" pathLength="1" style="--i:63"/><line x1="-0.34" y1="28.51" x2="29.09" y2="5.66" pathLength="1" style="--i:64"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="4.89" y1="3.41" x2="4.15" y2="29.05" pathLength="1" style="--i:65"/><line x1="11.01" y1="3.71" x2="11.38" y2="28.91" pathLength="1" style="--i:66"/><line x1="17.81" y1="3.23" x2="19.09" y2="30.25" pathLength="1" style="--i:67"/><line x1="25.88" y1="3.39" x2="25.52" y2="29.42" pathLength="1" style="--i:68"/><line x1="-0.48" y1="28.19" x2="28.26" y2="5.32" pathLength="1" style="--i:69"/></svg>
+        <svg class="tally__g" viewBox="-2 0 33 34" aria-hidden="true"><line x1="3.72" y1="4.65" x2="4.59" y2="30.52" pathLength="1" style="--i:70"/><line x1="11.78" y1="4.38" x2="12.31" y2="30.33" pathLength="1" style="--i:71"/><line x1="17.2" y1="4.02" x2="17.35" y2="30.28" pathLength="1" style="--i:72"/></svg>
+      </div>
+      <figcaption class="tally__cap"><b>73 unlocks.</b> One ordinary Tuesday, counted by hand. Day&nbsp;1 of the protocol is counting yours.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ THE SHIFT ═════════════════════════════════════════════════════════ -->
+<section class="section s-shift">
+  <div class="glow glow--center" aria-hidden="true"></div>
+  <div class="wrap wrap--mid center">
+    <h2 class="h2" data-reveal>This is not a willpower problem.<br>It's an engineering problem.</h2>
+    <p class="body-lg" data-reveal style="--d:100">Every app on your home screen is maintained by teams of engineers whose job is to keep you there. You bring willpower to that fight, and you lose. The answer isn't more guilt. It's a counter-protocol — a system designed as deliberately as the one working against you.</p>
+  </div>
+</section>
+
+<!-- ══ WHAT'S INSIDE ═════════════════════════════════════════════════════ -->
+<section class="section band s-inside">
+  <div class="wrap">
+    <header class="secthead center">
+      <p class="eyebrow" data-reveal>What's inside</p>
+      <h2 class="h2" data-reveal style="--d:60">Four weeks. One task a day.</h2>
+    </header>
+
+    <ol class="weeks">
+      <li class="card week" data-reveal>
+        <svg class="week__ico" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M14 8v6l4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <p class="week__n">Week 1</p>
+        <h3 class="week__t">Audit &amp; Interrupt</h3>
+        <p class="week__d">See exactly where your attention goes, and break the automatic reach.</p>
+      </li>
+      <li class="card week" data-reveal style="--d:80">
+        <svg class="week__ico" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="5" y="5" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 12h18M12 12v11" stroke="currentColor" stroke-width="1.5"/></svg>
+        <p class="week__n">Week 2</p>
+        <h3 class="week__t">Environment Redesign</h3>
+        <p class="week__d">Rebuild your phone, spaces, and defaults so the easy path is the focused one.</p>
+      </li>
+      <li class="card week" data-reveal style="--d:160">
+        <svg class="week__ico" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3l3 7h7l-5.5 4.5L20.5 22 14 17.5 7.5 22l2-7.5L4 10h7l3-7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <p class="week__n">Week 3</p>
+        <h3 class="week__t">Rebuild Deep Focus</h3>
+        <p class="week__d">Train sustained attention back up, from ten minutes to a full deep work block.</p>
+      </li>
+      <li class="card week" data-reveal style="--d:240">
+        <svg class="week__ico" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="10" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M4 25c1.5-5 5.5-7.5 10-7.5S22.5 20 24 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <p class="week__n">Week 4</p>
+        <h3 class="week__t">Identity &amp; Systems</h3>
+        <p class="week__d">Make it permanent — an attention operating system you wrote yourself.</p>
+      </li>
+    </ol>
+
+    <ul class="dashlist" data-reveal>
+      <li>30 daily tasks, each with the science behind it</li>
+      <li>Weekly tracker to log screen time and focus blocks</li>
+      <li>Relapse protocol card for the days you slip</li>
+      <li>Maintenance system for life after Day 30</li>
+      <li>Further-reading toolkit to go deeper</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ CREDIBILITY ═══════════════════════════════════════════════════════ -->
+<section class="section s-cred">
+  <div class="wrap wrap--wide center">
+    <p class="eyebrow eyebrow--mute" data-reveal>Built on the research of</p>
+    <ul class="sources" data-reveal style="--d:80">
+      <li><b>Anna Lembke</b><i>Dopamine Nation</i></li>
+      <li><b>Cal Newport</b><i>Deep Work</i></li>
+      <li><b>Johann Hari</b><i>Stolen Focus</i></li>
+      <li><b>Gloria Mark</b><i>Attention Span</i></li>
+      <li><b>James Clear</b><i>Atomic Habits</i></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ EMAIL CAPTURE ═════════════════════════════════════════════════════ -->
+<section class="section s-optin">
+  <div class="wrap wrap--mid2 optin" data-reveal>
+    <div class="optin__copy">
+      <h2 class="optin__t">Not ready for the full protocol?</h2>
+      <p class="optin__d">Get the free 48-Hour Dopamine Reset — a weekend version to feel the difference first.</p>
+    </div>
+    <form class="optin__form" id="optin" novalidate>
+      <label class="sr-only" for="email">Your email address</label>
+      <input class="field" id="email" name="email" type="email" inputmode="email"
+             autocomplete="email" placeholder="you@email.com" required
+             aria-describedby="optin-msg">
+      <button class="btn btn--ghost" type="submit">Send it to me</button>
+      <p class="optin__msg" id="optin-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ══ OUTCOMES ══════════════════════════════════════════════════════════ -->
+<section class="section s-out">
+  <div class="wrap wrap--mid3">
+    <header class="secthead center">
+      <p class="eyebrow" data-reveal>By Day 30</p>
+      <h2 class="h2" data-reveal style="--d:60">What changes in one month</h2>
+    </header>
+    <ul class="outcomes">
+      <li data-reveal>Screen time down 40–60% from your Day 1 baseline</li>
+      <li data-reveal style="--d:60">Your first 90-minute deep work block in years</li>
+      <li data-reveal style="--d:120">Reading books again — and finishing them</li>
+      <li data-reveal style="--d:180">Phone-free mornings and evenings, by default</li>
+      <li data-reveal style="--d:240">A written attention operating system you can keep for life</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══════════════════════════════════════════════════════
+     TODO: placeholder quotes. Swap for real, attributed reader feedback. -->
+<section class="section band s-quotes">
+  <div class="wrap">
+    <ul class="quotes">
+      <li class="card quote" data-reveal>
+        <blockquote>“I read a whole book last weekend. I hadn't done that since college. Week 3 is where it clicked.”</blockquote>
+        <div class="who"><span class="who__av" aria-hidden="true">DR</span><div><b>Daniel R.</b><span>Software engineer, 29</span></div></div>
+      </li>
+      <li class="card quote" data-reveal style="--d:90">
+        <blockquote>“Screen time went from 7 hours to under 3. The tasks are small enough that I actually did them.”</blockquote>
+        <div class="who"><span class="who__av" aria-hidden="true">MT</span><div><b>Maya T.</b><span>Grad student, 24</span></div></div>
+      </li>
+      <li class="card quote" data-reveal style="--d:180">
+        <blockquote>“The relapse card is the reason this one stuck when everything else failed. No guilt, just a reset.”</blockquote>
+        <div class="who"><span class="who__av" aria-hidden="true">CB</span><div><b>Chris B.</b><span>Designer, 35</span></div></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ PRICE ═════════════════════════════════════════════════════════════ -->
+<section class="section s-price" id="pricing">
+  <div class="glow glow--price" aria-hidden="true"></div>
+  <div class="wrap wrap--card offer" data-reveal>
+    <p class="eyebrow eyebrow--mute">The Attention Reset</p>
+    <p class="offer__price" data-price>$19.99</p>
+    <p class="offer__sub">One-time purchase. Yours forever.</p>
+    <ul class="ticks">
+      <li>The full 30-day protocol (PDF, ~90 pages)</li>
+      <li>Weekly tracker &amp; relapse protocol card</li>
+      <li>Maintenance system for after Day 30</li>
+      <li>Further-reading toolkit</li>
+    </ul>
+    <a class="btn btn--block" href="#pricing" data-checkout>Start Day 1 — <span data-price>$19.99</span></a>
+    <p class="offer__guarantee">30-day money-back guarantee. If it doesn't change how you use your phone, reply to your receipt for a full refund.</p>
+    <p class="offer__secure">Secure checkout · Instant download</p>
+  </div>
+</section>
+
+<!-- ══ FAQ ═══════════════════════════════════════════════════════════════ -->
+<section class="section s-faq">
+  <div class="wrap wrap--narrow">
+    <h2 class="h3 center" data-reveal>Questions</h2>
+    <div class="faq" data-reveal style="--d:60">
+      <details class="faq__i">
+        <summary>How much time does it take per day?<span class="faq__ico" aria-hidden="true"></span></summary>
+        <p>Most tasks take 10 to 15 minutes. A few in Week 3 ask for a longer focus block, but you build up to those gradually.</p>
+      </details>
+      <details class="faq__i">
+        <summary>What if I need my phone for work?<span class="faq__ico" aria-hidden="true"></span></summary>
+        <p>The protocol never asks you to give up your phone. It targets compulsive, unconscious use — work tools, messages, and calls stay untouched.</p>
+      </details>
+      <details class="faq__i">
+        <summary>Is this a digital detox?<span class="faq__ico" aria-hidden="true"></span></summary>
+        <p>No. Detoxes end, and the old habits come back. This is a rebuild — you change the environment and the systems, so the results hold after Day 30.</p>
+      </details>
+      <details class="faq__i">
+        <summary>What format is it?<span class="faq__ico" aria-hidden="true"></span></summary>
+        <p>A PDF ebook, delivered instantly after checkout. Read it on any device — or print it, which the protocol would quietly approve of.</p>
+      </details>
+      <details class="faq__i">
+        <summary>What if I slip up?<span class="faq__ico" aria-hidden="true"></span></summary>
+        <p>You will — it's expected and planned for. The relapse protocol card gives you a 5-minute reset routine, so one bad evening never becomes a bad week.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ═════════════════════════════════════════════════════════ -->
+<section class="section s-final center">
+  <div class="glow glow--top" aria-hidden="true"></div>
+  <div class="wrap wrap--mid4">
+    <h2 class="h2 h2--big" data-reveal>The feed will still be there.<br>Your attention won't.</h2>
+    <a class="btn" href="#pricing" data-reveal style="--d:100">Start Day 1 — <span data-price>$19.99</span></a>
+    <p class="microcopy" data-reveal style="--d:160"><span>Instant PDF download</span> <span>· 30-day money-back guarantee</span></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p class="foot__brand">The Attention Reset</p>
+    <nav class="foot__nav" aria-label="Footer">
+      <!-- TODO: real contact address and policy pages -->
+      <a href="mailto:hello@example.com">hello@example.com</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "The Attention Reset",
+  "alternateName": "The 30-Day Protocol to Reclaim Your Focus",
+  "bookFormat": "https://schema.org/EBook",
+  "numberOfPages": 90,
+  "inLanguage": "en",
+  "description": "A 30-day protocol to reclaim your attention — one 15-minute task a day, across four weeks of audit, environment redesign, focus rebuilding, and identity work.",
+  "image": "https://example.com/assets/og-cover.jpg",
+  "offers": {
+    "@type": "Offer",
+    "price": "19.99",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://example.com/#pricing"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How much time does it take per day?","acceptedAnswer":{"@type":"Answer","text":"Most tasks take 10 to 15 minutes. A few in Week 3 ask for a longer focus block, but you build up to those gradually."}},
+    {"@type":"Question","name":"What if I need my phone for work?","acceptedAnswer":{"@type":"Answer","text":"The protocol never asks you to give up your phone. It targets compulsive, unconscious use — work tools, messages, and calls stay untouched."}},
+    {"@type":"Question","name":"Is this a digital detox?","acceptedAnswer":{"@type":"Answer","text":"No. Detoxes end, and the old habits come back. This is a rebuild — you change the environment and the systems, so the results hold after Day 30."}},
+    {"@type":"Question","name":"What format is it?","acceptedAnswer":{"@type":"Answer","text":"A PDF ebook, delivered instantly after checkout. Read it on any device."}},
+    {"@type":"Question","name":"What if I slip up?","acceptedAnswer":{"@type":"Answer","text":"It's expected and planned for. The relapse protocol card gives you a 5-minute reset routine, so one bad evening never becomes a bad week."}}
+  ]
+}
+</script>
+
+<script src="script.js" defer></script>
+</body>
+</html>

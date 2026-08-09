@@ -1,0 +1,15 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Tooling
+node_modules/
+npm-debug.log*
+.env
+.env.local
