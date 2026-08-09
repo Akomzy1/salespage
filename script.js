@@ -7,13 +7,14 @@ const CONFIG = {
   // Shown wherever the price appears. Change it once, here.
   price: '$19.99',
 
+  // The struck-through anchor price on the offer card. This should be a price
+  // the book has actually sold at — invented "was" prices count as deceptive
+  // pricing in most markets. Set to '' to hide it.
+  listPrice: '$50',
+
   // TODO: your Gumroad / Stripe Payment Link / Lemon Squeezy checkout URL.
   // Left empty, the buy button just stays on the pricing card.
   checkoutUrl: '',
-
-  // TODO: your email provider's form-post URL (ConvertKit, Buttondown, Mailchimp…).
-  // Left empty, the form validates and confirms but sends nothing.
-  formEndpoint: '',
 };
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -21,6 +22,12 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ── Price and checkout ────────────────────────────────────────────────── */
 document.querySelectorAll('[data-price]').forEach(el => {
   el.textContent = CONFIG.price;
+});
+
+document.querySelectorAll('[data-list-price]').forEach(el => {
+  // An empty listPrice drops the anchor and its screen-reader label together.
+  if (!CONFIG.listPrice) { el.previousElementSibling?.remove(); el.remove(); return; }
+  el.textContent = CONFIG.listPrice;
 });
 
 if (CONFIG.checkoutUrl) {
@@ -108,66 +115,3 @@ if (book && !reduceMotion && matchMedia('(pointer: fine)').matches) {
   });
 }
 
-/* ── Opt-in form ───────────────────────────────────────────────────────── */
-const form = document.getElementById('optin');
-
-if (form) {
-  const input = form.querySelector('#email');
-  const msg   = form.querySelector('#optin-msg');
-  const button = form.querySelector('button');
-
-  const say = (text, state) => {
-    msg.textContent = text;
-    msg.dataset.state = state;
-  };
-
-  const succeed = () => {
-    input.hidden = true;
-    button.hidden = true;
-    form.closest('.optin').classList.add('is-done');
-    say('Check your inbox. The reset is on its way.', 'ok');
-  };
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const email = input.value.trim();
-
-    if (!input.checkValidity() || !email) {
-      input.setAttribute('aria-invalid', 'true');
-      say('That email address looks incomplete. Check it and try again.', 'error');
-      input.focus();
-      return;
-    }
-
-    input.removeAttribute('aria-invalid');
-
-    if (!CONFIG.formEndpoint) {
-      console.warn('[optin] CONFIG.formEndpoint is empty — nothing was sent. Set it in script.js.');
-      succeed();
-      return;
-    }
-
-    button.disabled = true;
-    say('Sending…', 'ok');
-
-    try {
-      const res = await fetch(CONFIG.formEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      if (!res.ok) throw new Error(res.status);
-      succeed();
-    } catch (err) {
-      button.disabled = false;
-      say('That didn’t go through. Try again, or email us and we’ll add you.', 'error');
-    }
-  });
-
-  input.addEventListener('input', () => {
-    if (input.getAttribute('aria-invalid') === 'true') {
-      input.removeAttribute('aria-invalid');
-      say('', 'ok');
-    }
-  });
-}

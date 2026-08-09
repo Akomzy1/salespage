@@ -1,16 +1,16 @@
 <!--
   THE ATTENTION RESET — sales page
   ---------------------------------------------------------------------------
-  Before this goes live, wire up the four placeholders. All of them are marked
+  Before this goes live, wire up the three placeholders. All of them are marked
   with "TODO" so you can grep for them:
 
     1. script.js  -> CONFIG.checkoutUrl   your Gumroad / Stripe / Lemon Squeezy link
-    2. script.js  -> CONFIG.formEndpoint  your email list endpoint (ConvertKit, Buttondown…)
-    3. this file  -> og:url / canonical   your real domain
-    4. this file  -> testimonials + contact email
+    2. this file  -> og:url / canonical   your real domain
+    3. this file  -> contact email + policy links in the footer
 
-  The three testimonials below are placeholder copy carried over from the
-  prototype. Replace them with real, attributed quotes before publishing.
+  CONFIG.listPrice sets the struck-through anchor price. It should reflect a
+  price the book has genuinely sold at — invented "was" prices are treated as
+  deceptive pricing in most markets.
 -->
 <!doctype html>
 <html lang="en">
@@ -189,26 +189,8 @@
   </div>
 </section>
 
-<!-- ══ EMAIL CAPTURE ═════════════════════════════════════════════════════ -->
-<section class="section s-optin">
-  <div class="wrap wrap--mid2 optin" data-reveal>
-    <div class="optin__copy">
-      <h2 class="optin__t">Not ready for the full protocol?</h2>
-      <p class="optin__d">Get the free 48-Hour Dopamine Reset — a weekend version to feel the difference first.</p>
-    </div>
-    <form class="optin__form" id="optin" novalidate>
-      <label class="sr-only" for="email">Your email address</label>
-      <input class="field" id="email" name="email" type="email" inputmode="email"
-             autocomplete="email" placeholder="you@email.com" required
-             aria-describedby="optin-msg">
-      <button class="btn btn--ghost" type="submit">Send it to me</button>
-      <p class="optin__msg" id="optin-msg" role="status" aria-live="polite"></p>
-    </form>
-  </div>
-</section>
-
 <!-- ══ OUTCOMES ══════════════════════════════════════════════════════════ -->
-<section class="section s-out">
+<section class="section band s-out">
   <div class="wrap wrap--mid3">
     <header class="secthead center">
       <p class="eyebrow" data-reveal>By Day 30</p>
@@ -224,33 +206,17 @@
   </div>
 </section>
 
-<!-- ══ TESTIMONIALS ══════════════════════════════════════════════════════
-     TODO: placeholder quotes. Swap for real, attributed reader feedback. -->
-<section class="section band s-quotes">
-  <div class="wrap">
-    <ul class="quotes">
-      <li class="card quote" data-reveal>
-        <blockquote>“I read a whole book last weekend. I hadn't done that since college. Week 3 is where it clicked.”</blockquote>
-        <div class="who"><span class="who__av" aria-hidden="true">DR</span><div><b>Daniel R.</b><span>Software engineer, 29</span></div></div>
-      </li>
-      <li class="card quote" data-reveal style="--d:90">
-        <blockquote>“Screen time went from 7 hours to under 3. The tasks are small enough that I actually did them.”</blockquote>
-        <div class="who"><span class="who__av" aria-hidden="true">MT</span><div><b>Maya T.</b><span>Grad student, 24</span></div></div>
-      </li>
-      <li class="card quote" data-reveal style="--d:180">
-        <blockquote>“The relapse card is the reason this one stuck when everything else failed. No guilt, just a reset.”</blockquote>
-        <div class="who"><span class="who__av" aria-hidden="true">CB</span><div><b>Chris B.</b><span>Designer, 35</span></div></div>
-      </li>
-    </ul>
-  </div>
-</section>
-
 <!-- ══ PRICE ═════════════════════════════════════════════════════════════ -->
 <section class="section s-price" id="pricing">
   <div class="glow glow--price" aria-hidden="true"></div>
   <div class="wrap wrap--card offer" data-reveal>
     <p class="eyebrow eyebrow--mute">The Attention Reset</p>
-    <p class="offer__price" data-price>$19.99</p>
+    <p class="offer__price">
+      <span class="sr-only">Regular price</span>
+      <s class="offer__was" data-list-price>$50</s>
+      <span class="sr-only">Now</span>
+      <span data-price>$19.99</span>
+    </p>
     <p class="offer__sub">One-time purchase. Yours forever.</p>
     <ul class="ticks">
       <li>The full 30-day protocol (PDF, ~90 pages)</li>

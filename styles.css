@@ -103,7 +103,6 @@ a:hover { color: var(--amber-hi); }
 }
 .wrap--wide   { --w: 900px; }
 .wrap--mid    { --w: 760px; }
-.wrap--mid2   { --w: 860px; }
 .wrap--mid3   { --w: 720px; }
 .wrap--mid4   { --w: 640px; }
 .wrap--narrow { --w: 660px; }
@@ -204,17 +203,6 @@ a:hover { color: var(--amber-hi); }
 
 .btn--block { display: block; width: 100%; padding-inline: 20px; text-align: center; }
 .btn--sm    { font-size: 14px; padding: 11px 22px; box-shadow: none; }
-
-.btn--ghost {
-  background: transparent; color: var(--amber);
-  border: 1px solid var(--amber);
-  font-size: 15px; padding: 0 26px; min-height: 48px;
-  box-shadow: none;
-}
-.btn--ghost:hover {
-  background: rgba(225,168,91,.10); color: var(--amber-hi);
-  box-shadow: none; transform: none;
-}
 
 /* ── Sticky buy bar ────────────────────────────────────────────────────── */
 .buybar {
@@ -379,48 +367,6 @@ a:hover { color: var(--amber-hi); }
 }
 .sources i::before { content: " · "; font-style: normal; }
 
-/* ── Opt-in ────────────────────────────────────────────────────────────── */
-.s-optin { --sp-t: 0; --sp-b: 0; }
-
-.optin {
-  background: linear-gradient(135deg, #101c2a, #0e1723);
-  border: 1px solid rgba(225,168,91,.20);
-  border-radius: 12px;
-  padding: clamp(28px, 4vw, 40px);
-  display: flex; flex-wrap: wrap; align-items: center; gap: 24px;
-}
-.optin__copy { flex: 1 1 320px; }
-.optin__t {
-  font-family: var(--display); font-weight: 700; font-size: 18px;
-  color: var(--head); margin-bottom: 6px;
-}
-.optin__d { font-size: 15px; line-height: 1.55; color: var(--text-dim); }
-
-.optin__form { flex: 1 1 300px; display: flex; flex-wrap: wrap; gap: 10px; }
-.field {
-  flex: 1 1 180px; min-height: 48px;
-  background: var(--ink-deep);
-  border: 1px solid rgba(255,255,255,.12); border-radius: 8px;
-  color: var(--head); padding: 0 16px;
-  font-family: var(--display); font-size: 15px;
-  transition: border-color .18s var(--ease);
-}
-.field::placeholder { color: var(--text-faint); }
-.field:focus { outline: none; border-color: var(--amber); }
-.field:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
-.field[aria-invalid="true"] { border-color: #c9714f; }
-
-.optin__msg {
-  flex: 1 0 100%;
-  font-family: var(--display); font-size: 14px; font-weight: 600;
-  color: var(--amber);
-  min-height: 0;
-}
-.optin__msg:empty { display: none; }
-.optin__msg[data-state="error"] { color: #e08a63; }
-
-.optin.is-done .optin__form { gap: 0; }
-
 /* ── Outcomes ──────────────────────────────────────────────────────────── */
 .s-out { --sp-t: clamp(64px, 9vw, 110px); --sp-b: clamp(64px, 9vw, 110px); }
 
@@ -436,30 +382,6 @@ a:hover { color: var(--amber-hi); }
   width: 14px; height: 1px; background: var(--amber);
 }
 
-/* ── Testimonials ──────────────────────────────────────────────────────── */
-.s-quotes { --sp-t: clamp(56px, 8vw, 96px); --sp-b: clamp(56px, 8vw, 96px); }
-
-.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-.quote { padding: 30px 26px; display: flex; flex-direction: column; }
-.quote blockquote {
-  font-size: 16px; line-height: 1.65; color: var(--text);
-  font-style: italic; margin-bottom: 22px; flex: 1;
-}
-.who { display: flex; align-items: center; gap: 12px; }
-.who__av {
-  flex: none; width: 44px; height: 44px; border-radius: 50%;
-  display: grid; place-items: center;
-  background: rgba(225,168,91,.10);
-  border: 1px solid rgba(225,168,91,.22);
-  font-family: var(--display); font-weight: 700; font-size: 13px;
-  letter-spacing: .04em; color: var(--amber);
-}
-.who b {
-  display: block;
-  font-family: var(--display); font-weight: 600; font-size: 14px; color: var(--head);
-}
-.who span { font-size: 13px; color: var(--text-mute); }
-
 /* ── Price ─────────────────────────────────────────────────────────────── */
 .s-price { --sp-t: clamp(64px, 9vw, 120px); --sp-b: clamp(64px, 9vw, 120px); }
 
@@ -473,9 +395,18 @@ a:hover { color: var(--amber-hi); }
 }
 .offer .eyebrow { margin-bottom: 18px; }
 .offer__price {
+  display: flex; align-items: baseline; justify-content: center; gap: 14px;
   font-family: var(--display); font-weight: 900; font-size: 56px;
   letter-spacing: -.02em; color: var(--head); line-height: 1;
   margin-bottom: 8px;
+}
+/* Sized in em so it tracks the price down at the small breakpoint. */
+.offer__was {
+  font-size: .46em; font-weight: 600; letter-spacing: -.01em;
+  color: var(--text-faint);
+  text-decoration-line: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(225,168,91,.75);
 }
 .offer__sub { font-size: 14px; color: var(--text-mute); margin-bottom: 30px; }
 
@@ -580,8 +511,6 @@ a:hover { color: var(--amber-hi); }
   /* Smaller on a phone so the headline and CTA both clear the fold. */
   .book__face { width: min(178px, 46vw); }
 
-  .optin__form { flex-direction: column; }
-  .btn--ghost { padding: 14px 26px; }
 }
 
 @media (max-width: 420px) {

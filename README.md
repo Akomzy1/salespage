@@ -20,16 +20,23 @@ python -m http.server 8000
 
 ## Before going live
 
-All four are marked `TODO` in the source.
+All three are marked `TODO` in the source.
 
 1. **`CONFIG.checkoutUrl`** in `script.js` — your Gumroad / Stripe / Lemon Squeezy link. While empty, the buy button just rests on the pricing card.
-2. **`CONFIG.formEndpoint`** in `script.js` — your email provider's endpoint. While empty, the opt-in validates and shows the confirmation but sends nothing (it logs a console warning).
-3. **Real domain** in `index.html` — the canonical link, `og:url`, `og:image`, and the JSON-LD `url`/`image` fields all point at `example.com`.
-4. **Contact email and Privacy / Terms links** in the footer.
+2. **Real domain** in `index.html` — the canonical link, `og:url`, `og:image`, and the JSON-LD `url`/`image` fields all point at `example.com`.
+3. **Contact email and Privacy / Terms links** in the footer.
 
-`CONFIG.price` in `script.js` sets the price everywhere on the page; the literals in the HTML are the no-JS fallback.
+## Pricing
 
-> **The three testimonials are placeholder copy** carried over from the prototype. Replace them with real, attributed quotes before publishing — presenting fabricated reviews as genuine is a legal problem in most markets.
+`CONFIG.price` sets the price everywhere on the page; the literals in the HTML are the no-JS fallback. `CONFIG.listPrice` sets the struck-through anchor on the offer card, and `''` removes it.
+
+> The anchor price should reflect a price the book has genuinely sold at. Invented "was" prices are treated as deceptive pricing by the FTC and equivalent regulators, and the claim is easy to check against your checkout history.
+
+The JSON-LD `offers.price` is deliberately the real price only — the anchor is presentational and is not published as structured data.
+
+## Social proof
+
+The page has no testimonials. The "Built on the research of" row credits published work rather than claiming endorsement, so it needs no substantiation. If you add reader quotes later, they need to be real and attributable.
 
 ## Assets
 
