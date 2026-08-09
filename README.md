@@ -28,12 +28,23 @@ https://stan.store/battleplan/p/the-attention-reset-30day-focus-protocol
 
 It's hard-coded in `index.html` rather than set from `script.js`, so the most important link on the page survives a JS failure. The hero, sticky-bar, and closing CTAs all scroll down to the offer card instead of jumping straight to checkout — readers see the price, the inclusions, and the guarantee before they leave the page. To send them direct instead, swap those three `href="#pricing"` values for the Stan URL.
 
+## Hosting
+
+Deployed with GitHub Pages from `main` / root:
+
+```
+https://akomzy1.github.io/salespage/
+```
+
+The canonical link, `og:url`, `og:image`, and the JSON-LD `url`/`image` all point there. Every asset path in `index.html` is relative, so the site works unchanged under the `/salespage/` subpath — and would keep working if you later move it to a custom domain or the repo root. `.nojekyll` tells Pages to serve the files as-is instead of running them through Jekyll.
+
+If you do move to a custom domain, the absolute URLs in the `<head>` and the two JSON-LD blocks are the only things that need updating.
+
 ## Before going live
 
-Both are marked `TODO` in the source.
+Marked `TODO` in the source.
 
-1. **Real domain** in `index.html` — the canonical link, `og:url`, `og:image`, and the JSON-LD `url`/`image` fields all point at `example.com`.
-2. **Contact email and Privacy / Terms links** in the footer.
+1. **Contact email and Privacy / Terms links** in the footer — currently `hello@example.com` and two `#` links.
 
 ## Pricing
 
